@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Drug Mart - Complete Product Catalog</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+            font-size: 1rem;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #1a1a1a;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .highlight-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        .nav-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Category Sections */
+        .category {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .category h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-details {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            text-align: center;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+        }
+
+        /* Special highlighting for featured medications */
+        .featured {
+            border: 2px solid #00ff88;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+        }
+
+        .featured .product-name {
+            color: #667eea;
+        }
+
+        .savings-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #1a1a1a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Important Notes */
+        .important-notes {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .important-notes h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .important-notes ul {
+            color: #856404;
+            margin-left: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-box h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .trust-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">🍁 Canada Drug Mart</div>
+            </div>
+            <h1>Essential Medications Formulary</h1>
+            <div class="subtitle">Priority Therapeutic Categories - Licensed Canadian Pharmacy</div>
+            <div class="trust-info">
+                <span>🏥 Licensed Pharmacy #32386</span>
+                <span>🍁 Health Canada Approved</span>
+                <span>📅 Since 2003</span>
+            </div>
+        </div>
+
+        <!-- Intro Section -->
+        <div class="intro-section">
+            <h2 style="margin-bottom: 1rem; font-size: 1.8rem;">Welcome to Canada Drug Mart</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Your trusted partner for prescription medications at significant savings. This formulary contains our most requested therapeutic categories with current pricing and specifications.</p>
+            
+            <p style="padding: 1.5rem; background: rgba(102, 126, 234, 0.1); border-radius: 8px; border-left: 4px solid #667eea; font-size: 1rem;">
+                <strong>Complete Medication List:</strong> For our full inventory of available medications, visit <strong>canadadrugmart.com</strong>
+            </p>
+            
+            <div class="highlight-stats">
+                <div class="stat-box">
+                    <span class="stat-number">20+ Years</span>
+                    <span class="stat-label">Shipping to US Patients</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">Up to 67%</span>
+                    <span class="stat-label">Savings vs US Retail</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">3-5 Days</span>
+                    <span class="stat-label">Delivery Time</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-section">
+            <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">📋 Medication Categories</h2>
+            <div class="nav-grid">
+                <a href="#diabetes" class="nav-item">
+                    <span>🍭 GLP-1 & Diabetes Medications</span>
+                </a>
+                <a href="#cardiovascular" class="nav-item">
+                    <span>❤️ Cardiovascular Medications</span>
+                </a>
+                <a href="#mental-health" class="nav-item">
+                    <span>🧠 Mental Health Medications</span>
+                </a>
+                <a href="#respiratory" class="nav-item">
+                    <span>🫁 Respiratory Medications</span>
+                </a>
+                <a href="#cholesterol" class="nav-item">
+                    <span>💊 Cholesterol & Lipid Management</span>
+                </a>
+                <a href="#pain" class="nav-item">
+                    <span>🦴 Pain & Inflammation</span>
+                </a>
+                <a href="#specialty" class="nav-item">
+                    <span>🏥 Specialty Medications</span>
+                </a>
+                <a href="#additional" class="nav-item">
+                    <span>🏥 Additional Medications</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- GLP-1 & Diabetes Medications -->
+        <div id="diabetes" class="category">
+            <h2>🍭 GLP-1 & Diabetes Medications</h2>
+            <div class="product-grid">
+                <div class="product-card featured">
+                    <div class="product-name">Ozempic (Semaglutide)</div>
+                    <div class="product-details">1mg dose, 4mg/pen pre-filled/3mL</div>
+                    <div class="price">$428.50</div>
+                    <div class="savings-badge">67% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Ozempic (Semaglutide)</div>
+                    <div class="product-details">0.25mg/0.5mg dose, 2mg/pen pre-filled/3mL</div>
+                    <div class="price">$428.50</div>
+                    <div class="savings-badge">67% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Wegovy (Semaglutide)</div>
+                    <div class="product-details">0.25mg dose, pen pre-filled 1mg/1.5mL</div>
+                    <div class="price">$825.50</div>
+                    <div class="savings-badge">41% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Wegovy (Semaglutide)</div>
+                    <div class="product-details">0.5mg dose, pen pre-filled 2mg/1.5mL</div>
+                    <div class="price">$825.50</div>
+                    <div class="savings-badge">41% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Wegovy (Semaglutide)</div>
+                    <div class="product-details">1mg dose, pen pre-filled 4mg/3mL</div>
+                    <div class="price">$825.50</div>
+                    <div class="savings-badge">41% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Wegovy (Semaglutide)</div>
+                    <div class="product-details">1.7mg dose, pen pre-filled 6.8mg/3mL</div>
+                    <div class="price">$825.50</div>
+                    <div class="savings-badge">41% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Wegovy (Semaglutide)</div>
+                    <div class="product-details">2.4mg dose, pen pre-filled 9.6mg/3mL</div>
+                    <div class="price">$825.50</div>
+                    <div class="savings-badge">41% vs US Retail</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Saxenda (Liraglutide)</div>
+                    <div class="product-details">5 pens × 3mL</div>
+                    <div class="price">$634.99</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Victoza (Liraglutide)</div>
+                    <div class="product-details">2 pens × 18mg/3mL</div>
+                    <div class="price">$429.99</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Victoza (Liraglutide)</div>
+                    <div class="product-details">3 pens × 18mg/3mL</div>
+                    <div class="price">$644.99</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Trulicity (Dulaglutide)</div>
+                    <div class="product-details">4 pens × 0.75mg/0.5mL</div>
+                    <div class="price">$435.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Trulicity (Dulaglutide)</div>
+                    <div class="product-details">4 pens × 1.5mg/0.5mL</div>
+                    <div class="price">$435.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 2.5mg/0.5mL</div>
+                    <div class="price">$885.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 5mg/0.5mL</div>
+                    <div class="price">$885.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 7.5mg/0.5mL</div>
+                    <div class="price">$885.00</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 10mg/0.5mL</div>
+                    <div class="price">$885.00</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 12.5mg/0.5mL</div>
+                    <div class="price">$885.00</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mounjaro (Tirzepatide)</div>
+                    <div class="product-details">4 × 1 Vial 15mg/0.5mL</div>
+                    <div class="price">$985.00</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Rybelsus (Semaglutide)</div>
+                    <div class="product-details">3mg Tablets, Qty 30</div>
+                    <div class="price">$455.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Rybelsus (Semaglutide)</div>
+                    <div class="product-details">7mg Tablets, Qty 30</div>
+                    <div class="price">$455.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Rybelsus (Semaglutide)</div>
+                    <div class="product-details">14mg Tablets, Qty 30</div>
+                    <div class="price">$455.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Januvia (Sitagliptin)</div>
+                    <div class="product-details">25mg Tablets, Qty 30</div>
+                    <div class="price">$128.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Januvia (Sitagliptin)</div>
+                    <div class="product-details">50mg Tablets, Qty 30</div>
+                    <div class="price">$135.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Januvia (Sitagliptin)</div>
+                    <div class="product-details">100mg Tablets, Qty 30</div>
+                    <div class="price">$145.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Janumet XR</div>
+                    <div class="product-details">50mg/1000mg Tablets, Qty 60</div>
+                    <div class="price">$229.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Jardiance</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$156.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Jardiance</div>
+                    <div class="product-details">25mg Tablets, Qty 30</div>
+                    <div class="price">$156.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Glucophage (Metformin)</div>
+                    <div class="product-details">500mg Tablets, Qty 100</div>
+                    <div class="price">$95.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Glucophage (Metformin)</div>
+                    <div class="product-details">500mg Tablets, Qty 500</div>
+                    <div class="price">$125.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Glucophage (Metformin)</div>
+                    <div class="product-details">850mg Tablets, Qty 100</div>
+                    <div class="price">$125.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Glumetza</div>
+                    <div class="product-details">500mg Tablets, Qty 500</div>
+                    <div class="price">$541.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Glumetza</div>
+                    <div class="product-details">1000mg Tablets, Qty 90</div>
+                    <div class="price">$181.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Tresiba</div>
+                    <div class="product-details">Pre-filled pen 100 unit/mL 5×3mL</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Tresiba</div>
+                    <div class="product-details">Pre-filled pen 200 unit/mL 3×3mL</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Trajenta</div>
+                    <div class="product-details">5mg Tablets, Qty 30</div>
+                    <div class="price">$110.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cardiovascular Medications -->
+        <div id="cardiovascular" class="category">
+            <h2>❤️ Cardiovascular Medications</h2>
+            <div class="product-grid">
+                <div class="product-card featured">
+                    <div class="product-name">Eliquis</div>
+                    <div class="product-details">2.5mg Tablets, Qty 60</div>
+                    <div class="price">$215.50</div>
+                    <div class="savings-badge">64% vs US Retail</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Eliquis</div>
+                    <div class="product-details">5mg Tablets, Qty 60</div>
+                    <div class="price">$215.50</div>
+                    <div class="savings-badge">64% vs US Retail</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Apixaban Generic</div>
+                    <div class="product-details">5mg Tablets, Qty 180</div>
+                    <div class="price">$185.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Xarelto (Rivaroxaban)</div>
+                    <div class="product-details">2.5mg Tablets, Qty 100</div>
+                    <div class="price">$269.99</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Xarelto (Rivaroxaban)</div>
+                    <div class="product-details">10mg Tablets, Qty 50</div>
+                    <div class="price">$356.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Xarelto (Rivaroxaban)</div>
+                    <div class="product-details">15mg Tablets, Qty 90</div>
+                    <div class="price">$398.50</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Xarelto (Rivaroxaban)</div>
+                    <div class="product-details">20mg Tablets, Qty 90</div>
+                    <div class="price">$419.50</div>
+                    <div class="savings-badge">25% vs US Retail</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pradaxa</div>
+                    <div class="product-details">75mg Capsules, Qty 30</div>
+                    <div class="price">$105.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pradaxa</div>
+                    <div class="product-details">110mg Capsules, Qty 60</div>
+                    <div class="price">$205.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pradaxa</div>
+                    <div class="product-details">150mg Capsules, Qty 60</div>
+                    <div class="price">$205.50</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Brilinta</div>
+                    <div class="product-details">90mg Tablets, Qty 60</div>
+                    <div class="price">$199.75</div>
+                    <div class="savings-badge">57% vs US Retail</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Edoxaban (Savaysa generic)</div>
+                    <div class="product-details">15mg Tablets, Qty 100</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Edoxaban (Savaysa generic)</div>
+                    <div class="product-details">30mg Tablets, Qty 100</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Edoxaban (Savaysa generic)</div>
+                    <div class="product-details">60mg Tablets, Qty 100</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Savaysa</div>
+                    <div class="product-details">15mg Tablets, Qty 30</div>
+                    <div class="price">$219.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Savaysa</div>
+                    <div class="product-details">30mg Tablets, Qty 30</div>
+                    <div class="price">$219.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Savaysa</div>
+                    <div class="product-details">60mg Tablets, Qty 30</div>
+                    <div class="price">$219.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Norvasc (Amlodipine)</div>
+                    <div class="product-details">5mg Tablets, Qty 100</div>
+                    <div class="price">$235.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Norvasc (Amlodipine)</div>
+                    <div class="product-details">10mg Tablets, Qty 100</div>
+                    <div class="price">$345.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cozaar (Losartan)</div>
+                    <div class="product-details">25mg Tablets, Qty 100</div>
+                    <div class="price">$315.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cozaar (Losartan)</div>
+                    <div class="product-details">50mg Tablets, Qty 30</div>
+                    <div class="price">$95.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cozaar (Losartan)</div>
+                    <div class="product-details">100mg Tablets, Qty 30</div>
+                    <div class="price">$105.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Carvedilol</div>
+                    <div class="product-details">3.125mg Tablets, Qty 100</div>
+                    <div class="price">$94.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Carvedilol</div>
+                    <div class="product-details">6.25mg Tablets, Qty 100</div>
+                    <div class="price">$94.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Carvedilol</div>
+                    <div class="product-details">12.5mg Tablets, Qty 100</div>
+                    <div class="price">$94.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Carvedilol</div>
+                    <div class="product-details">25mg Tablets, Qty 100</div>
+                    <div class="price">$94.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Diovan HCT</div>
+                    <div class="product-details">80mg/12.5mg Tablets, Qty 28</div>
+                    <div class="price">$79.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Diovan HCT</div>
+                    <div class="product-details">160mg/12.5mg Tablets, Qty 28</div>
+                    <div class="price">$81.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Diovan HCT</div>
+                    <div class="product-details">320mg/12.5mg Tablets, Qty 28</div>
+                    <div class="price">$88.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zestoretic</div>
+                    <div class="product-details">Lisinopril/HCTZ 20/12.5mg, Qty 100</div>
+                    <div class="price">$175.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Multaq</div>
+                    <div class="product-details">400mg Tablets, Qty 60</div>
+                    <div class="price">$243.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Bystolic</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$95.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Flomax CR</div>
+                    <div class="product-details">0.4mg Tablets, Qty 30</div>
+                    <div class="price">$47.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mental Health Medications -->
+        <div id="mental-health" class="category">
+            <h2>🧠 Mental Health Medications</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Zoloft (Sertraline)</div>
+                    <div class="product-details">25mg Capsules, Qty 100</div>
+                    <div class="price">$217.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zoloft (Sertraline)</div>
+                    <div class="product-details">50mg Capsules, Qty 100</div>
+                    <div class="price">$299.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zoloft (Sertraline)</div>
+                    <div class="product-details">100mg Capsules, Qty 100</div>
+                    <div class="price">$335.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lexapro (Escitalopram)</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$185.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lexapro (Escitalopram)</div>
+                    <div class="product-details">10mg Tablets, Qty 100</div>
+                    <div class="price">$475.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lexapro (Escitalopram)</div>
+                    <div class="product-details">20mg Tablets, Qty 30</div>
+                    <div class="price">$195.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prozac (Fluoxetine)</div>
+                    <div class="product-details">10mg Capsules, Qty 100</div>
+                    <div class="price">$399.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prozac (Fluoxetine)</div>
+                    <div class="product-details">20mg Capsules, Qty 100</div>
+                    <div class="price">$399.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cymbalta (Duloxetine)</div>
+                    <div class="product-details">30mg Capsules, Qty 28</div>
+                    <div class="price">$84.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cymbalta (Duloxetine)</div>
+                    <div class="product-details">60mg Capsules, Qty 28</div>
+                    <div class="price">$145.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Celexa (Citalopram)</div>
+                    <div class="product-details">20mg Tablets, Qty 100</div>
+                    <div class="price">$217.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Celexa (Citalopram)</div>
+                    <div class="product-details">40mg Tablets, Qty 30</div>
+                    <div class="price">$89.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Wellbutrin XL</div>
+                    <div class="product-details">150mg Tablets, Qty 90</div>
+                    <div class="price">$135.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Wellbutrin XL</div>
+                    <div class="product-details">300mg Tablets, Qty 90</div>
+                    <div class="price">$222.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Effexor XR</div>
+                    <div class="product-details">37.5mg Capsules, Qty 90</div>
+                    <div class="price">$175.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Effexor XR</div>
+                    <div class="product-details">75mg Capsules, Qty 90</div>
+                    <div class="price">$275.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Effexor XR</div>
+                    <div class="product-details">150mg Capsules, Qty 90</div>
+                    <div class="price">$299.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pristiq</div>
+                    <div class="product-details">50mg Tablets, Qty 30</div>
+                    <div class="price">$375.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pristiq</div>
+                    <div class="product-details">100mg Tablets, Qty 30</div>
+                    <div class="price">$395.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Respiratory Medications -->
+        <div id="respiratory" class="category">
+            <h2>🫁 Respiratory Medications</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Ventolin HFA Inhaler</div>
+                    <div class="product-details">100mcg, 200 doses</div>
+                    <div class="price">$29.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Ventolin Diskus</div>
+                    <div class="product-details">200mcg, 60 doses</div>
+                    <div class="price">$42.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Advair Diskus</div>
+                    <div class="product-details">250mcg/50mcg, 60 doses</div>
+                    <div class="price">$263.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Symbicort Inhaler</div>
+                    <div class="product-details">100mcg, 120 doses</div>
+                    <div class="price">$144.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Symbicort Inhaler</div>
+                    <div class="product-details">200mcg, 120 doses</div>
+                    <div class="price">$178.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Spiriva Respimat</div>
+                    <div class="product-details">2.5mcg, 4mL 60 puffs</div>
+                    <div class="price">$117.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Spiriva Capsules</div>
+                    <div class="product-details">18mcg, Qty 30</div>
+                    <div class="price">$117.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pulmicort Turbuhaler</div>
+                    <div class="product-details">100mcg, 200 doses</div>
+                    <div class="price">$92.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pulmicort Turbuhaler</div>
+                    <div class="product-details">200mcg, 200 doses</div>
+                    <div class="price">$159.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Pulmicort Turbuhaler</div>
+                    <div class="product-details">400mcg, 200 doses</div>
+                    <div class="price">$198.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Flonase SP</div>
+                    <div class="product-details">50mcg, 120 doses</div>
+                    <div class="price">$49.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Flonase SP</div>
+                    <div class="product-details">50mcg, 60 doses</div>
+                    <div class="price">$69.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Singulair</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$125.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Anoro Ellipta</div>
+                    <div class="product-details">62.5mcg/25mcg, 30 doses</div>
+                    <div class="price">$127.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Dulera (Zenhale)</div>
+                    <div class="product-details">100mcg/5mcg, 120 doses</div>
+                    <div class="price">$198.98</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Dulera (Zenhale)</div>
+                    <div class="product-details">200mcg/5mcg, 120 doses</div>
+                    <div class="price">$219.98</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Mometasone/Formoterol</div>
+                    <div class="product-details">50mcg, 140 doses</div>
+                    <div class="price">$72.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cholesterol & Lipid Management -->
+        <div id="cholesterol" class="category">
+            <h2>💊 Cholesterol & Lipid Management</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Lipitor (Atorvastatin)</div>
+                    <div class="product-details">10mg Tablets, Qty 90</div>
+                    <div class="price">$299.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lipitor (Atorvastatin)</div>
+                    <div class="product-details">20mg Tablets, Qty 90</div>
+                    <div class="price">$375.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lipitor (Atorvastatin)</div>
+                    <div class="product-details">40mg Tablets, Qty 90</div>
+                    <div class="price">$398.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lipitor (Atorvastatin)</div>
+                    <div class="product-details">80mg Tablets, Qty 30</div>
+                    <div class="price">$195.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">5mg Tablets, Qty 30</div>
+                    <div class="price">$125.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">5mg Tablets, Qty 90</div>
+                    <div class="price">$148.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$125.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">10mg Tablets, Qty 90</div>
+                    <div class="price">$115.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">20mg Tablets, Qty 30</div>
+                    <div class="price">$135.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Crestor (Rosuvastatin)</div>
+                    <div class="product-details">20mg Tablets, Qty 90</div>
+                    <div class="price">$122.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zocor (Simvastatin)</div>
+                    <div class="product-details">10mg Tablets, Qty 28</div>
+                    <div class="price">$95.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zocor (Simvastatin)</div>
+                    <div class="product-details">20mg Tablets, Qty 28</div>
+                    <div class="price">$119.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zocor (Simvastatin)</div>
+                    <div class="product-details">40mg Tablets, Qty 28</div>
+                    <div class="price">$119.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zetia (Ezetimibe)</div>
+                    <div class="product-details">10mg Tablets, Qty 30</div>
+                    <div class="price">$152.00</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Ezetimibe Generic</div>
+                    <div class="product-details">10mg Tablets, Qty 100</div>
+                    <div class="price">$118.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Tricor (Fenofibrate)</div>
+                    <div class="product-details">145mg Tablets, Qty 30</div>
+                    <div class="price">$65.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Tricor (Fenofibrate)</div>
+                    <div class="product-details">160mg Tablets, Qty 30</div>
+                    <div class="price">$77.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Fenofibrate Generic</div>
+                    <div class="product-details">145mg Tablets, Qty 100</div>
+                    <div class="price">$139.95</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pain & Inflammation -->
+        <div id="pain" class="category">
+            <h2>🦴 Pain, Inflammation & Gastrointestinal</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Celebrex (Celecoxib)</div>
+                    <div class="product-details">100mg Capsules, Qty 100</div>
+                    <div class="price">$225.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Celebrex (Celecoxib)</div>
+                    <div class="product-details">200mg Capsules, Qty 100</div>
+                    <div class="price">$275.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zyloprim</div>
+                    <div class="product-details">100mg Tablets, Qty 100</div>
+                    <div class="price">$49.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zyloprim</div>
+                    <div class="product-details">200mg Tablets, Qty 100</div>
+                    <div class="price">$60.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Zyloprim</div>
+                    <div class="product-details">300mg Tablets, Qty 100</div>
+                    <div class="price">$92.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prilosec (Omeprazole)</div>
+                    <div class="product-details">20mg Capsules, Qty 30</div>
+                    <div class="price">$77.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Protonix</div>
+                    <div class="product-details">20mg Tablets, Qty 100</div>
+                    <div class="price">$242.40</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Protonix</div>
+                    <div class="product-details">40mg Tablets, Qty 100</div>
+                    <div class="price">$274.45</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prevacid</div>
+                    <div class="product-details">15mg Capsules, Qty 30</div>
+                    <div class="price">$92.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prevacid</div>
+                    <div class="product-details">15mg Capsules, Qty 100</div>
+                    <div class="price">$265.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prevacid</div>
+                    <div class="product-details">30mg Capsules, Qty 30</div>
+                    <div class="price">$73.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Prevacid</div>
+                    <div class="product-details">30mg Capsules, Qty 100</div>
+                    <div class="price">$385.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Dexilant</div>
+                    <div class="product-details">30mg Capsules, Qty 90</div>
+                    <div class="price">$425.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Dexilant</div>
+                    <div class="product-details">60mg Capsules, Qty 90</div>
+                    <div class="price">$425.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lialda (Pentasa)</div>
+                    <div class="product-details">500mg Tablets, Qty 100</div>
+                    <div class="price">$398.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Entocort</div>
+                    <div class="product-details">3mg Capsules, Qty 100</div>
+                    <div class="price">$409.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Myrbetriq</div>
+                    <div class="product-details">25mg Tablets, Qty 90</div>
+                    <div class="price">$425.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Myrbetriq</div>
+                    <div class="product-details">50mg Tablets, Qty 90</div>
+                    <div class="price">$425.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specialty Medications -->
+        <div id="specialty" class="category">
+            <h2>🏥 Specialty Medications</h2>
+            <div class="product-grid">
+                <div class="product-card featured">
+                    <div class="product-name">Humira Pre-fill Injection</div>
+                    <div class="product-details">20mg/0.2mL, 2×0.2mL</div>
+                    <div class="price">$1,849.50</div>
+                    <div class="savings-badge">Save Thousands</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Humira Auto Injection</div>
+                    <div class="product-details">40mg/0.8mL, 2×0.8mL</div>
+                    <div class="price">$3,775.50</div>
+                    <div class="savings-badge">Save Thousands</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Amjevita (Adalimumab)</div>
+                    <div class="product-details">20mg/0.4mL Pre-filled syringe</div>
+                    <div class="price">$499.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Amjevita (Adalimumab)</div>
+                    <div class="product-details">40mg/0.8mL, 2×0.8mL Pre-filled syringe</div>
+                    <div class="price">$1,999.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Amjevita (Adalimumab)</div>
+                    <div class="product-details">20mg/0.4mL, 2×0.8mL Auto-injector</div>
+                    <div class="price">$1,999.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hyrimoz (Adalimumab)</div>
+                    <div class="product-details">20mg/0.2mL, 2×0.4mL Pre-filled syringe</div>
+                    <div class="price">$3,129.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Yuflyma (Adalimumab)</div>
+                    <div class="product-details">40mg/0.4mL ×2 Pre-filled pen</div>
+                    <div class="price">$6,175.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Yuflyma (Adalimumab)</div>
+                    <div class="product-details">40mg/0.4mL ×2 Pre-filled syringe</div>
+                    <div class="price">$6,175.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×0.4mg</div>
+                    <div class="price">$299.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×0.6mg</div>
+                    <div class="price">$299.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×0.8mg</div>
+                    <div class="price">$399.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×1mg</div>
+                    <div class="price">$449.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×1.2mg</div>
+                    <div class="price">$579.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">7×2mg</div>
+                    <div class="price">$899.50</div>
+                </div>
+
+                <div class="product-card featured">
+                    <div class="product-name">Genotropin Syringe</div>
+                    <div class="product-details">5×12mg</div>
+                    <div class="price">$3,849.50</div>
+                    <div class="savings-badge">Premium HGH</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Xifaxan</div>
+                    <div class="product-details">550mg Capsules, Qty 60</div>
+                    <div class="price">$1,065.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Sporanox</div>
+                    <div class="product-details">100mg Capsules, Qty 30</div>
+                    <div class="price">$185.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Rifadin</div>
+                    <div class="product-details">150mg Capsules, Qty 100</div>
+                    <div class="price">$195.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Medications -->
+        <div id="additional" class="category">
+            <h2>🏥 Additional Medications & Specialties</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">25mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">50mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">75mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">100mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">125mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">137mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">150mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">175mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Synthroid (Levothyroxine)</div>
+                    <div class="product-details">200mcg Tablets, Qty 90</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Viagra</div>
+                    <div class="product-details">25mg Tablets, Qty 4</div>
+                    <div class="price">$69.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Viagra</div>
+                    <div class="product-details">50mg Tablets, Qty 4</div>
+                    <div class="price">$69.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Viagra</div>
+                    <div class="product-details">100mg Tablets, Qty 4</div>
+                    <div class="price">$69.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cialis</div>
+                    <div class="product-details">2.5mg Tablets, Qty 28</div>
+                    <div class="price">$165.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cialis</div>
+                    <div class="product-details">5mg Tablets, Qty 28</div>
+                    <div class="price">$179.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cialis</div>
+                    <div class="product-details">10mg Tablets, Qty 4</div>
+                    <div class="price">$89.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Cialis</div>
+                    <div class="product-details">20mg Tablets, Qty 4</div>
+                    <div class="price">$96.99</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Doxycycline</div>
+                    <div class="product-details">100mg Capsules, Qty 100</div>
+                    <div class="price">$102.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Diflucan</div>
+                    <div class="product-details">150mg Capsules, Qty 1</div>
+                    <div class="price">$27.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Fluconazole Generic</div>
+                    <div class="product-details">150mg Capsules, Qty 1</div>
+                    <div class="price">$27.25</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Vagifem</div>
+                    <div class="product-details">10mcg Tablets, Qty 18</div>
+                    <div class="price">$215.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Premarin Cream</div>
+                    <div class="product-details">0.625mg, 30g</div>
+                    <div class="price">$35.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Divigel Gel Sachets</div>
+                    <div class="product-details">0.1% (0.25mg), Qty 30</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Divigel Gel Sachets</div>
+                    <div class="product-details">0.1% (0.5mg), Qty 30</div>
+                    <div class="price">$65.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Divigel Gel Sachets</div>
+                    <div class="product-details">0.1% (1mg), Qty 30</div>
+                    <div class="price">$75.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Retin-A Cream</div>
+                    <div class="product-details">0.025%, 30g</div>
+                    <div class="price">$51.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Retin-A Cream</div>
+                    <div class="product-details">0.05%, 30g</div>
+                    <div class="price">$75.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Vaniqa Cream</div>
+                    <div class="product-details">13.9%, 30g</div>
+                    <div class="price">$218.75</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lotemax Gel</div>
+                    <div class="product-details">0.5%, 5g</div>
+                    <div class="price">$155.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Travatan Z Solution</div>
+                    <div class="product-details">0.004%, 5mL</div>
+                    <div class="price">$114.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Azopt Eyedrop</div>
+                    <div class="product-details">1%, 5mL</div>
+                    <div class="price">$78.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Restasis EyeDrop</div>
+                    <div class="product-details">0.05%, 30×0.4mL</div>
+                    <div class="price">$275.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lumigan Ophth Solution</div>
+                    <div class="product-details">0.01%, 5mL</div>
+                    <div class="price">$135.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lumigan Ophth Solution</div>
+                    <div class="product-details">0.01%, 7mL</div>
+                    <div class="price">$169.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Finacea Gel</div>
+                    <div class="product-details">0.15%, 50g</div>
+                    <div class="price">$95.50</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Lasix Oral Solution</div>
+                    <div class="product-details">10mg/120mL</div>
+                    <div class="price">$79.50</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="important-notes">
+            <h3>📢 Important Information</h3>
+            <ul>
+                <li>All prices are in US dollars (USD)</li>
+                <li>Prescription required for all medications</li>
+                <li>Shipping costs vary by medication type and location</li>
+                <li>Prices subject to change - current as of June 2025</li>
+                <li>Volume discounts available for bulk orders</li>
+                <li>Complete inventory of available medications at canadadrugmart.com</li>
+                <li>All medications are sourced from Health Canada approved suppliers</li>
+                <li>Temperature-controlled shipping for specialty medications</li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">📞 Ready to Start Saving?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Contact us today for a custom quote tailored to your needs.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h4>📞 Contact Information</h4>
+                    <p><strong>Phone:</strong> 1-866-888-3784</p>
+                    <p><strong>Email:</strong> info@canadadrugmart.com</p>
+                    <p><strong>Hours:</strong> 8 AM - 6 PM CST</p>
+                </div>
+                
+                <div class="contact-box">
+                    <h4>🏥 Pharmacy Details</h4>
+                    <p>Licensed Pharmacy #32386</p>
+                    <p>Winnipeg, Manitoba, Canada</p>
+                    <p>Health Canada Approved</p>
+                </div>
+                
+                <div class="contact-box">
+                    <h4>🚚 Shipping & Delivery</h4>
+                    <p><strong>Delivery:</strong> 3-5 business days</p>
+                    <p><strong>Direct to your door</strong> with full logistics support</p>
+                    <p><strong>Tracking:</strong> All orders monitored</p>
+                    <p><strong>Consultations:</strong> Available throughout process</p>
+                </div>
+
+                <div class="contact-box">
+                    <h4>💳 Payment Options</h4>
+                    <p><strong>Credit Cards:</strong> Visa, MasterCard</p>
+                    <p><strong>Other Options:</strong> Money Order, Personal Check</p>
+                    <p><strong>Assistance:</strong> Call 1-866-888-3784</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                <h3 style="margin-bottom: 1rem;">🎯 Service Guarantees</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800;">2 Hours</div>
+                        <div>Quote Response Time</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800;">5 Days</div>
+                        <div>Pricing Guarantee</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 1.5rem; font-weight: 800;">HIPAA</div>
+                        <div>Compliant Process</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3 style="margin-bottom: 1rem;">🍁 Canada Drug Mart - Your Trusted Prescription Partner</h3>
+            <p>Licensed Canadian Pharmacy #32386 | Health Canada Approved | Since 2003</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Canada Drug Mart. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
