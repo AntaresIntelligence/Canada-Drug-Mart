@@ -125,13 +125,6 @@
             text-align: center;
             padding: 0.5rem;
             z-index: 999;
-            transform: translateY(-100%);
-            animation: slideDown 1s ease 2s forwards;
-            transition: transform 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            to { transform: translateY(0); }
         }
 
         .trust-items {
@@ -158,6 +151,7 @@
             position: relative;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             overflow: hidden;
+            padding-top: 120px;
         }
 
         .hero-content {
@@ -1853,19 +1847,14 @@
             alert('Thank you! Your quote request has been submitted. You\'ll receive a detailed quote within 2 hours.');
         });
 
-        // Dynamic navigation background and trust strip visibility
+        // Dynamic navigation background only
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            const trustStrip = document.querySelector('.trust-strip');
             
             if (window.scrollY > 100) {
                 nav.style.background = 'rgba(26, 26, 26, 0.9)';
-                // Hide trust strip when scrolling down
-                trustStrip.style.transform = 'translateY(-100%)';
             } else {
                 nav.style.background = 'rgba(255, 255, 255, 0.1)';
-                // Show trust strip when at top
-                trustStrip.style.transform = 'translateY(0)';
             }
         });
 
