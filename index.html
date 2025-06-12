@@ -168,6 +168,82 @@
             position: relative;
         }
 
+        /* Brand Story Section */
+        .brand-story {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-story h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00ff88;
+            font-weight: 600;
+        }
+
+        .brand-story p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        /* Brand Promise Pillars */
+        .brand-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pillar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .pillar:nth-child(2) { animation-delay: 1.2s; }
+        .pillar:nth-child(3) { animation-delay: 1.4s; }
+
+        .pillar:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pillar h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #00ff88;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
@@ -235,6 +311,44 @@
             transform: translateY(-3px);
         }
 
+        /* Personal Connection Section */
+        .personal-connection {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            animation: fadeInUp 1s ease 1.8s both;
+        }
+
+        .testimonial-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #00ff88;
+            font-size: 0.9rem;
+        }
+
         /* 3D Floating Pills */
         .floating-pills {
             position: absolute;
@@ -287,6 +401,103 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Our Story Section */
+        .our-story-section {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .our-story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #00ff88, #00d4ff, #667eea);
+        }
+
+        .story-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            border-radius: 2px;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+        }
+
+        .story-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .story-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #666;
+            text-align: center;
         }
 
         /* Savings Calculator */
@@ -585,649 +796,4 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .faq-question:hover {
-            background: linear-gradient(135deg, #764ba2, #667eea);
-        }
-
-        .faq-question::after {
-            content: '+';
-            position: absolute;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-question::after {
-            transform: translateY(-50%) rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 1.5rem;
-            max-height: 200px;
-        }
-
-        /* Quote Form Section */
-        .quote-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .quote-form {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .form-group {
-            text-align: left;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #1a1a1a;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #00ff88;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #00ff88;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
             
-            .calculator-inputs,
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* Scroll animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body>
-    <!-- Floating Particles -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-content">
-            <a href="#" class="logo">🍁 Canada Drug Mart</a>
-            <div class="nav-links">
-                <a href="#calculator">Calculator</a>
-                <a href="#products">Products</a>
-                <a href="catalog.html">Full Catalog</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-                <a href="#" style="color: #00ff88;">Talk to a Pharmacist</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Trust Strip -->
-    <div class="trust-strip">
-        <div class="trust-items">
-            <div class="trust-item">
-                <span>🏥</span>
-                <span>Licensed Pharmacy #32386</span>
-            </div>
-            <div class="trust-item">
-                <span>🍁</span>
-                <span>Health Canada Approved</span>
-            </div>
-            <div class="trust-item">
-                <span>📅</span>
-                <span>Since 2003</span>
-            </div>
-            <div class="trust-item">
-                <span>📰</span>
-                <span>Featured in USA Today</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="floating-pills">
-            <div class="pill"></div>
-            <div class="pill"></div>
-            <div class="pill"></div>
-            <div class="pill"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1>Cut GLP-1 & Chronic-Care Drug Spend by Up to 60%</h1>
-            <p class="hero-subtitle">
-                Fully Licensed Canadian Pharmacy • Same-Day Dispensing • 3-5 Day Cross-Border Delivery
-            </p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">📄 Download Savings Brief (2 min)</a>
-                <a href="#" class="btn btn-secondary">📅 Book 15-min Discovery Call</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="main-content">
-        <!-- Interactive Savings Calculator -->
-        <section id="calculator" class="calculator-section">
-            <div class="section">
-                <div class="calculator fade-in">
-                    <h3>💰 Calculate Your Potential Savings</h3>
-                    <p>See exactly how much you could save with our verified pricing</p>
-                    
-                    <div class="calculator-inputs">
-                        <div class="input-group">
-                            <label for="drug-select">Select Drug:</label>
-                            <select id="drug-select">
-                                <option value="ozempic">Ozempic (1mg pen)</option>
-                                <option value="wegovy">Wegovy (2.4mg pen)</option>
-                                <option value="saxenda">Saxenda (6mg pen)</option>
-                                <option value="trulicity">Trulicity (1.5mg pen)</option>
-                                <option value="eliquis">Eliquis 5mg</option>
-                                <option value="xarelto">Xarelto 20mg</option>
-                                <option value="entresto">Entresto 49/51mg</option>
-                                <option value="brilinta">Brilinta 90mg</option>
-                            </select>
-                        </div>
-                        <div class="input-group">
-                            <label for="quantity">Monthly Quantity:</label>
-                            <input type="number" id="quantity" value="100" min="1">
-                        </div>
-                    </div>
-                    
-                    <div class="savings-result">
-                        <div id="savings-display">
-                            💊 Ozempic: <span class="old-price">$130,000/month</span> → <span class="new-price">$42,850/month</span>
-                            <br><strong>Your Annual Savings: $1,045,800</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Study Spotlight -->
-        <section class="case-study">
-            <div class="section fade-in">
-                <h2>🎯 Proven Results: PBM Partner Case Study</h2>
-                <div class="case-study-card">
-                    <h3>Real-World Success Story</h3>
-                    <p>How one PBM reduced GLP-1 costs by 60% while maintaining quality and compliance standards.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Scripts/Month</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">60%</span>
-                            <span class="stat-label">Cost Reduction</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">3-5</span>
-                            <span class="stat-label">Day Delivery</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Ship & Comply -->
-        <section class="shipping-section">
-            <div class="section fade-in">
-                <h2 style="text-align: center; margin-bottom: 3rem;">🚚 Operations You Can Audit</h2>
-                <div class="shipping-steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Licensed Sourcing</h3>
-                        <p>Health Canada approved medications from verified manufacturers. Full chain of custody documentation available.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Same-Day Pack-Out</h3>
-                        <p>Insulated cold-chain packaging with ice packs. Temperature monitoring throughout the process.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>3-5 Day Cross-Border</h3>
-                        <p>Express delivery with tracking. All customs and importation paperwork handled automatically.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Catalogue Preview -->
-        <section id="products" class="catalogue-section">
-            <div class="section fade-in">
-                <h2 style="text-align: center; margin-bottom: 3rem;">💊 Featured Products</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <h3>Ozempic (Semaglutide) 1mg</h3>
-                        <p>Pre-filled injection pen for Type 2 diabetes and weight management.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $1,300</div>
-                                <div class="new-price">CDM Price: $428.50</div>
-                            </div>
-                            <div class="savings-badge">67% OFF</div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>Wegovy (Semaglutide) 2.4mg</h3>
-                        <p>Higher dose for chronic weight management in adults.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $1,400</div>
-                                <div class="new-price">CDM Price: $485.00</div>
-                            </div>
-                            <div class="savings-badge">65% OFF</div>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <h3>Saxenda (Liraglutide) 6mg</h3>
-                        <p>Daily injection for chronic weight management.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $1,200</div>
-                                <div class="new-price">CDM Price: $420.00</div>
-                            </div>
-                            <div class="savings-badge">65% OFF</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Eliquis 5mg</h3>
-                        <p>Anticoagulant for stroke prevention and blood clot treatment.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $594.79</div>
-                                <div class="new-price">CDM Price: $215.50</div>
-                            </div>
-                            <div class="savings-badge">64% OFF</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Xarelto 20mg</h3>
-                        <p>Anticoagulant for preventing blood clots and stroke.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $558.02</div>
-                                <div class="new-price">CDM Price: $419.50</div>
-                            </div>
-                            <div class="savings-badge">25% OFF</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Entresto 49/51mg</h3>
-                        <p>Heart failure medication to reduce cardiovascular death risk.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $677.98</div>
-                                <div class="new-price">CDM Price: $335.50</div>
-                            </div>
-                            <div class="savings-badge">51% OFF</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Brilinta 90mg</h3>
-                        <p>Antiplatelet medication to reduce cardiovascular events.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $463.90</div>
-                                <div class="new-price">CDM Price: $199.75</div>
-                            </div>
-                            <div class="savings-badge">57% OFF</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="catalog.html" class="btn btn-primary">📋 View Complete Product Catalog</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="faq-section">
-            <div class="section fade-in">
-                <h2 style="text-align: center; margin-bottom: 3rem;">❓ Frequently Asked Questions</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">Is importation legal for PBMs and DPCs?</div>
-                        <div class="faq-answer">
-                            <p>Yes, under FDA guidelines, healthcare providers can legally import approved medications from licensed Canadian pharmacies for patient use. We provide all necessary documentation for compliance.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">How is cold-chain validated?</div>
-                        <div class="faq-answer">
-                            <p>We use temperature-controlled packaging with data loggers that record temperature throughout transit. All shipments include temperature reports and are insured for product integrity.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">How is pharmacovigilance handled?</div>
-                        <div class="faq-answer">
-                            <p>Our licensed pharmacists follow Health Canada's adverse event reporting protocols. We maintain detailed records and coordinate with both Canadian and US health authorities as required.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">What are your payment terms and bulk invoicing options?</div>
-                        <div class="faq-answer">
-                            <p>We offer net 30 payment terms for qualified accounts. Bulk orders can be invoiced monthly with detailed itemization for easy reconciliation with your accounting systems.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Risk-Free Next Step -->
-        <section id="contact" class="quote-section">
-            <div class="section fade-in">
-                <h2>🚀 Get Your Custom Bulk Quote</h2>
-                <p>Receive a detailed quote within 2 hours - no commitment required</p>
-                
-                <div class="quote-form">
-                    <form>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="email">Email Address:</label>
-                                <input type="email" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="npi">NPI Number:</label>
-                                <input type="text" id="npi">
-                            </div>
-                            <div class="form-group">
-                                <label for="organization">Organization:</label>
-                                <input type="text" id="organization" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="monthly-volume">Monthly Volume:</label>
-                                <input type="number" id="monthly-volume" placeholder="Scripts per month">
-                            </div>
-                            <div class="form-group full-width">
-                                <label for="target-drugs">Target Drugs:</label>
-                                <textarea id="target-drugs" placeholder="List the medications you're interested in..."></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">💬 Get Quote + Purchase Order Template</button>
-                    </form>
-                </div>
-                
-                <p style="margin-top: 1rem; opacity: 0.8;">
-                    ⏰ Pricing held for 5 business days • 🔒 HIPAA compliant • 📞 No sales calls unless requested
-                </p>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>🍁 Canada Drug Mart</h4>
-                <p>Licensed Pharmacy #32386<br>
-                Winnipeg, Manitoba<br>
-                Health Canada Approved</p>
-            </div>
-            <div class="footer-section">
-                <h4>📞 Contact</h4>
-                <p>Phone: 1-800-XXX-XXXX<br>
-                Email: info@canadadrugmart.com<br>
-                Hours: 8 AM - 6 PM CST</p>
-            </div>
-            <div class="footer-section">
-                <h4>🔗 Quick Links</h4>
-                <p><a href="#">Compliance Documentation</a><br>
-                <a href="#">Licensing Information</a><br>
-                <a href="#">Privacy Policy</a><br>
-                <a href="#">Terms of Service</a></p>
-            </div>
-            <div class="footer-section">
-                <h4>🏆 Trust Indicators</h4>
-                <p>🇨🇦 Health Canada Licensed<br>
-                📋 FDA Import Compliant<br>
-                🔒 HIPAA Secure<br>
-                ⭐ 20+ Years Experience</p>
-            </div>
-        </div>
-        <div style="border-top: 1px solid #333; padding-top: 2rem; text-align: center; color: #999;">
-            <p>&copy; 2024 Canada Drug Mart. All rights reserved. Licensed Canadian Pharmacy.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Savings Calculator
-        const drugPrices = {
-            ozempic: { us: 1300, cdm: 428.50 },
-            wegovy: { us: 1400, cdm: 485.00 },
-            saxenda: { us: 1200, cdm: 420.00 },
-            trulicity: { us: 1150, cdm: 395.00 },
-            eliquis: { us: 594.79, cdm: 215.50 },
-            xarelto: { us: 558.02, cdm: 419.50 },
-            entresto: { us: 677.98, cdm: 335.50 },
-            brilinta: { us: 463.90, cdm: 199.75 }
-        };
-
-        function updateSavings() {
-            const drug = document.getElementById('drug-select').value;
-            const quantity = parseInt(document.getElementById('quantity').value) || 0;
-            const prices = drugPrices[drug];
-            
-            const monthlyUS = prices.us * quantity;
-            const monthlyCDM = prices.cdm * quantity;
-            const monthlySavings = monthlyUS - monthlyCDM;
-            const annualSavings = monthlySavings * 12;
-            const savingsPercent = Math.round((monthlySavings / monthlyUS) * 100);
-            
-            // Format drug name for display
-            const drugNames = {
-                ozempic: 'Ozempic',
-                wegovy: 'Wegovy', 
-                saxenda: 'Saxenda',
-                trulicity: 'Trulicity',
-                eliquis: 'Eliquis',
-                xarelto: 'Xarelto',
-                entresto: 'Entresto',
-                brilinta: 'Brilinta'
-            };
-            
-            document.getElementById('savings-display').innerHTML = `
-                💊 ${drugNames[drug]}: 
-                <span class="old-price">$${monthlyUS.toLocaleString()}/month</span> → 
-                <span class="new-price">$${monthlyCDM.toLocaleString()}/month</span>
-                <br><strong>Your Annual Savings: $${annualSavings.toLocaleString()} (${savingsPercent}% off)</strong>
-            `;
-        }
-
-        document.getElementById('drug-select').addEventListener('change', updateSavings);
-        document.getElementById('quantity').addEventListener('input', updateSavings);
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your quote request has been submitted. You\'ll receive a detailed quote within 2 hours.');
-        });
-
-        // Dynamic navigation background
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(26, 26, 26, 0.9)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.1)';
-            }
-        });
-
-        // Initialize calculator
-        updateSavings();
-    </script>
-</body>
-</html>
