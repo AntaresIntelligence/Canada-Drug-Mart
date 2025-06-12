@@ -347,238 +347,239 @@
             margin: 0 auto;
         }
 
-        /* Our Story Timeline Section */
-        .story-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 5rem 2rem;
+        /* Enhanced Animated Roadmap Section */
+        .roadmap-section {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 6rem 2rem;
             margin-top: -100px;
             padding-top: 150px;
             clip-path: polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0 100%);
+            position: relative;
+            overflow: hidden;
         }
 
-        .story-content {
+        .roadmap-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            animation: auroreMove 20s ease-in-out infinite;
+        }
+
+        @keyframes auroreMove {
+            0%, 100% { opacity: 0.3; transform: translateX(0) scale(1); }
+            50% { opacity: 0.5; transform: translateX(30px) scale(1.1); }
+        }
+
+        .roadmap-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .story-header {
-            margin-bottom: 4rem;
+        .roadmap-header {
+            margin-bottom: 5rem;
+            color: white;
         }
 
-        .story-header h2 {
-            font-size: 3rem;
+        .roadmap-header h2 {
+            font-size: 3.5rem;
             font-weight: 800;
-            color: #1a1a1a;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .roadmap-subtitle {
+            font-size: 1.4rem;
+            color: #00ff88;
+            font-style: italic;
             margin-bottom: 1rem;
         }
 
-        .story-tagline {
-            font-size: 1.3rem;
-            color: #666;
-            font-style: italic;
+        .roadmap-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .timeline {
+        /* Animated Journey Path */
+        .journey-container {
             position: relative;
-            margin: 4rem 0;
+            padding: 4rem 0;
         }
 
-        .timeline::before {
-            content: '';
+        .journey-path {
             position: absolute;
             left: 50%;
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
+            background: linear-gradient(to bottom, #00ff88, #00d4ff, #667eea, #764ba2);
             transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
         }
 
-        .timeline-item {
+        .journey-path::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 8px;
+            height: 20px;
+            background: #00ff88;
+            border-radius: 4px;
+            box-shadow: 0 0 15px #00ff88;
+            animation: pathProgress 15s ease-in-out infinite;
+        }
+
+        @keyframes pathProgress {
+            0% { top: 0%; opacity: 1; }
+            25% { top: 25%; opacity: 0.8; }
+            50% { top: 50%; opacity: 0.6; }
+            75% { top: 75%; opacity: 0.8; }
+            100% { top: 100%; opacity: 1; }
+        }
+
+        .journey-milestone {
             position: relative;
-            margin: 3rem 0;
+            margin: 4rem 0;
             opacity: 0;
-            transform: translateY(50px);
-            animation: slideInUp 0.8s ease forwards;
+            animation: milestoneAppear 1s ease forwards;
         }
 
-        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .journey-milestone:nth-child(1) { animation-delay: 0.5s; }
+        .journey-milestone:nth-child(2) { animation-delay: 1s; }
+        .journey-milestone:nth-child(3) { animation-delay: 1.5s; }
+        .journey-milestone:nth-child(4) { animation-delay: 2s; }
+        .journey-milestone:nth-child(5) { animation-delay: 2.5s; }
 
-        @keyframes slideInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        @keyframes milestoneAppear {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.9);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
             }
         }
 
-        .timeline-item.left {
+        .journey-milestone.left {
             text-align: right;
-            padding-right: calc(50% + 2rem);
+            padding-right: calc(50% + 3rem);
         }
 
-        .timeline-item.right {
+        .journey-milestone.right {
             text-align: left;
-            padding-left: calc(50% + 2rem);
+            padding-left: calc(50% + 3rem);
         }
 
-        .timeline-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .milestone-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
             position: relative;
-            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        .timeline-item.right .timeline-content {
-            border-left: none;
-            border-right: 4px solid #764ba2;
+        .milestone-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.8s ease;
         }
 
-        .timeline-year {
+        .milestone-card:hover::before {
+            left: 100%;
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .milestone-year {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            width: 80px;
-            height: 80px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #1a1a1a;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.4);
+            animation: yearPulse 3s ease-in-out infinite;
         }
 
-        .timeline-title {
-            font-size: 1.5rem;
+        @keyframes yearPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .milestone-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0, 255, 136, 0.3));
+        }
+
+        .milestone-title {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #00ff88;
             margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 255, 136, 0.3);
         }
 
-        .timeline-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        .milestone-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .timeline-stat {
-            background: linear-gradient(45deg, #00ff88, #00d4ff);
-            color: #1a1a1a;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            display: inline-block;
-        }
-
-        /* Patient Stories Section */
-        .patient-stories {
-            background: #fff;
-            padding: 5rem 2rem;
-        }
-
-        .stories-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .stories-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-        }
-
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .story-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .story-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .savings-badge-large {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            background: linear-gradient(45deg, #00ff88, #00d4ff);
-            color: #1a1a1a;
+        .milestone-impact {
+            background: linear-gradient(45deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+            border: 1px solid rgba(0, 255, 136, 0.3);
             padding: 1rem 1.5rem;
             border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-        }
-
-        .story-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #444;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .story-author {
             font-weight: 600;
-            color: #667eea;
-        }
-
-        .story-location {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Mission Statement Section */
-        .mission-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .mission-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .mission-quote {
-            font-size: 2rem;
-            font-style: italic;
-            font-weight: 300;
-            margin-bottom: 2rem;
             color: #00ff88;
-        }
-
-        .mission-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .mission-signature {
-            font-weight: 600;
-            font-size: 1.1rem;
+            display: inline-block;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* Savings Calculator */
@@ -600,6 +601,11 @@
             max-width: 600px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             animation: slideInUp 1s ease;
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .calculator h3 {
@@ -649,6 +655,123 @@
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+
+        /* Real Patient Stories Section */
+        .patient-stories {
+            background: #fff;
+            padding: 6rem 2rem;
+        }
+
+        .stories-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .stories-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .stories-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .story-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            /* Ensure enough top padding for the badge */
+            padding-top: 4rem;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .story-card:hover::before {
+            left: 100%;
+        }
+
+        .story-card:hover {
+            transform: translateY(-15px) rotateX(2deg);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .savings-badge-large {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: linear-gradient(45deg, #00ff88, #00d4ff);
+            color: #1a1a1a;
+            padding: 1.2rem 1.8rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            box-shadow: 0 15px 35px rgba(0, 255, 136, 0.4);
+            z-index: 2;
+            animation: badgeBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes badgeBounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-5px) rotate(-3deg); }
+        }
+
+        .story-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .story-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(102, 126, 234, 0.3);
+            position: absolute;
+            top: -1rem;
+            left: -0.5rem;
+            font-family: serif;
+        }
+
+        .story-author {
+            font-weight: 700;
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-location {
+            color: #999;
+            font-size: 1rem;
+            font-style: italic;
         }
 
         /* Case Study Section */
@@ -721,50 +844,6 @@
         .stat-label {
             font-size: 1rem;
             opacity: 0.9;
-        }
-
-        /* Shipping Section */
-        .shipping-section {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-        }
-
-        .shipping-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            transform: rotateY(10deg) translateZ(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #00ff88, #00d4ff);
-            color: #1a1a1a;
-            font-size: 1.5rem;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
         }
 
         /* Product Catalogue */
@@ -961,6 +1040,55 @@
             resize: vertical;
         }
 
+        /* Mission Statement Section */
+        .mission-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: #00ff88;
+            text-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .mission-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .mission-signature {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #00d4ff;
+        }
+
         /* Footer */
         footer {
             background: #1a1a1a;
@@ -1022,24 +1150,39 @@
                 gap: 1rem;
             }
 
-            .timeline-item.left,
-            .timeline-item.right {
+            .journey-milestone.left,
+            .journey-milestone.right {
                 text-align: center;
                 padding: 0 1rem;
             }
 
-            .timeline::before {
+            .journey-path {
                 display: none;
             }
 
-            .timeline-year {
+            .milestone-year {
                 position: static;
                 transform: none;
-                margin: 0 auto 1rem;
+                margin: 0 auto 1.5rem;
+                width: 80px;
+                height: 80px;
             }
 
             .stories-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-card {
+                padding: 3rem 1.5rem;
+            }
+
+            .roadmap-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .mission-quote {
+                font-size: 1.8rem;
             }
         }
 
@@ -1075,7 +1218,9 @@
         <div class="nav-content">
             <a href="#" class="logo">🍁 Canada Drug Mart</a>
             <div class="nav-links">
+                <a href="#roadmap">Our Journey</a>
                 <a href="#calculator">Calculator</a>
+                <a href="#testimonials">Stories</a>
                 <a href="#products">Products</a>
                 <a href="catalog.html">Full Catalog</a>
                 <a href="#faq">FAQ</a>
@@ -1146,93 +1291,80 @@
     </section>
 
     <div class="main-content">
-        <!-- Our Story Timeline Section -->
-        <section class="story-section">
-            <div class="story-content">
-                <div class="story-header">
-                    <h2>Our Journey of Care</h2>
-                    <p class="story-tagline">From crisis response to everyday care — building trust one delivery at a time</p>
+        <!-- Enhanced Animated Roadmap Section -->
+        <section id="roadmap" class="roadmap-section">
+            <div class="roadmap-content">
+                <div class="roadmap-header">
+                    <h2>Our Journey of Impact</h2>
+                    <p class="roadmap-subtitle">Safe • Reliable • Affordable</p>
+                    <p class="roadmap-description">
+                        From our establishment to the flu vaccine crisis, through decades of serving patients — see how we've remained your trusted healthcare partner through every challenge.
+                    </p>
                 </div>
 
-                <div class="timeline">
-                    <div class="timeline-item left">
-                        <div class="timeline-year">2004</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">The Flu Vaccine Lifeline</h3>
-                            <p class="timeline-description">When the U.S. faced a critical flu-vaccine shortage, we partnered with Dr. Philip O'Keefe to rush 400 doses through red-tape and FDA scrutiny — because high-risk patients couldn't wait.</p>
-                            <div class="timeline-stat">First Life-Saving Shipment</div>
+                <div class="journey-container">
+                    <div class="journey-path"></div>
+
+                    <div class="journey-milestone left">
+                        <div class="milestone-year">2003</div>
+                        <div class="milestone-card">
+                            <span class="milestone-icon">🏥</span>
+                            <h3 class="milestone-title">Canada Drug Mart Founded</h3>
+                            <p class="milestone-description">
+                                Established with a mission to provide safe, reliable, and affordable medications to patients across North America. Licensed as a legitimate Canadian pharmacy committed to healthcare access.
+                            </p>
+                            <div class="milestone-impact">Trusted Foundation</div>
                         </div>
                     </div>
 
-                    <div class="timeline-item right">
-                        <div class="timeline-year">2010</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">Expanding Access</h3>
-                            <p class="timeline-description">As U.S. chain pharmacies began closing in rural areas, we stepped in to serve underserved communities, ensuring no ZIP code went without affordable medication access.</p>
-                            <div class="timeline-stat">Rural Communities Served</div>
+                    <div class="journey-milestone right">
+                        <div class="milestone-year">2004</div>
+                        <div class="milestone-card">
+                            <span class="milestone-icon">🚨</span>
+                            <h3 class="milestone-title">Flu Vaccine Crisis Response</h3>
+                            <p class="milestone-description">
+                                When the U.S. faced a critical flu vaccine shortage, we partnered with Dr. Philip O'Keefe to rush 400 life-saving doses through red-tape and FDA scrutiny — because high-risk patients couldn't wait.
+                            </p>
+                            <div class="milestone-impact">400 Lives Protected</div>
                         </div>
                     </div>
 
-                    <div class="timeline-item left">
-                        <div class="timeline-year">2020</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">COVID Stability</h3>
-                            <p class="timeline-description">When supply chains faltered during the pandemic, our relationships with Health Canada-approved suppliers kept essential medications flowing to patients who needed them most.</p>
-                            <div class="timeline-stat">Uninterrupted Supply</div>
+                    <div class="journey-milestone left">
+                        <div class="milestone-year">2010</div>
+                        <div class="milestone-card">
+                            <span class="milestone-icon">🏘️</span>
+                            <h3 class="milestone-title">Fighting Pharmacy Deserts</h3>
+                            <p class="milestone-description">
+                                As U.S. chain pharmacies closed in less profitable rural areas, we stepped in to serve underserved communities, ensuring no ZIP code went without access to affordable medications.
+                            </p>
+                            <div class="milestone-impact">Rural Communities Served</div>
                         </div>
                     </div>
 
-                    <div class="timeline-item right">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            <h3 class="timeline-title">1,000+ Monthly GLP-1 Deliveries</h3>
-                            <p class="timeline-description">We now safeguard 1,000+ cold-chain GLP-1 deliveries every month — each tracked in real time from our Winnipeg pharmacy to doorsteps across the U.S.</p>
-                            <div class="timeline-stat">Temperature-Monitored Excellence</div>
+                    <div class="journey-milestone right">
+                        <div class="milestone-year">2020</div>
+                        <div class="milestone-card">
+                            <span class="milestone-icon">🦠</span>
+                            <h3 class="milestone-title">COVID-19 Supply Stability</h3>
+                            <p class="milestone-description">
+                                When global supply chains faltered during the pandemic, our relationships with Health Canada-approved suppliers kept essential medications flowing to patients who needed them most.
+                            </p>
+                            <div class="milestone-impact">Uninterrupted Care</div>
+                        </div>
+                    </div>
+
+                    <div class="journey-milestone left">
+                        <div class="milestone-year">2025</div>
+                        <div class="milestone-card">
+                            <span class="milestone-icon">🚚</span>
+                            <h3 class="milestone-title">1,000+ Monthly GLP-1 Deliveries</h3>
+                            <p class="milestone-description">
+                                Today, we safeguard over 1,000 cold-chain GLP-1 deliveries every month — each tracked in real time from our Winnipeg pharmacy to doorsteps across the U.S. with temperature-monitored excellence.
+                            </p>
+                            <div class="milestone-impact">Advanced Cold Chain</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Patient Stories Section -->
-        <section class="patient-stories">
-            <div class="section">
-                <div class="stories-header">
-                    <h2>Real Savings, Real People</h2>
-                    <p>No one should have to choose between health and finances. Hear from patients saving thousands every year without compromising on quality.</p>
-                </div>
-
-                <div class="stories-grid">
-                    <div class="story-card fade-in">
-                        <div class="savings-badge-large">$3,110 saved/yr</div>
-                        <p class="story-quote">"I was paying $1,400 monthly for Wegovy. Canada Drug Mart cut that to $485 — same exact medication, same manufacturer. That's real money back in my pocket for my family."</p>
-                        <div class="story-author">Sarah M.</div>
-                        <div class="story-location">Phoenix, Arizona</div>
-                    </div>
-
-                    <div class="story-card fade-in">
-                        <div class="savings-badge-large">$1,842 saved/yr</div>
-                        <p class="story-quote">"As a small business owner, every dollar counts. When my Eliquis prescription was costing $600/month, Canada Drug Mart's $215 price was a lifesaver — literally and financially."</p>
-                        <div class="story-author">James R.</div>
-                        <div class="story-location">Rural Montana</div>
-                    </div>
-
-                    <div class="story-card fade-in">
-                        <div class="savings-badge-large">$2,450 saved/yr</div>
-                        <p class="story-quote">"Living 40 miles from the nearest pharmacy that closed last year, Canada Drug Mart delivers my insulin right to my door. Reliable, affordable, and they actually care about rural patients."</p>
-                        <div class="story-author">Maria L.</div>
-                        <div class="story-location">West Texas</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mission Statement Section -->
-        <section class="mission-section">
-            <div class="mission-content">
-                <p class="mission-quote">"Access shouldn't depend on your ZIP code."</p>
-                <p class="mission-text">We've built our reputation on one simple principle: every patient deserves access to life-saving medications, regardless of location or financial circumstance. For over 20 years, we've been the bridge between Health Canada's regulated supply and America's healthcare needs.</p>
-                <p class="mission-signature">— Canada Drug Mart Pharmacist Team</p>
             </div>
         </section>
 
@@ -1273,6 +1405,60 @@
             </div>
         </section>
 
+        <!-- Real Patient Stories Section -->
+        <section id="testimonials" class="patient-stories">
+            <div class="section">
+                <div class="stories-header">
+                    <h2>Real Savings, Real Stories</h2>
+                    <p>No one should have to choose between health and finances. Here are real stories from patients saving thousands every year without compromising on quality.</p>
+                </div>
+
+                <div class="stories-grid">
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">$3,110 saved/yr</div>
+                        <p class="story-quote">I was paying $1,400 monthly for Wegovy. Canada Drug Mart cut that to $485 — same exact medication, same manufacturer. That's real money back in my pocket for my family.</p>
+                        <div class="story-author">Sarah M.</div>
+                        <div class="story-location">Phoenix, Arizona</div>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">$1,842 saved/yr</div>
+                        <p class="story-quote">As a small business owner, every dollar counts. When my Eliquis prescription was costing $600/month, Canada Drug Mart's $215 price was a lifesaver — literally and financially.</p>
+                        <div class="story-author">James R.</div>
+                        <div class="story-location">Rural Montana</div>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">$2,450 saved/yr</div>
+                        <p class="story-quote">Living 40 miles from the nearest pharmacy that closed last year, Canada Drug Mart delivers my insulin right to my door. Reliable, affordable, and they actually care about rural patients.</p>
+                        <div class="story-author">Maria L.</div>
+                        <div class="story-location">West Texas</div>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">$3,000+ saved/yr</div>
+                        <p class="story-quote">Canada Drugmart has been a lifesaver! I'm saving over $3,000 a year on my prescriptions, allowing me to finally afford my other expenses.</p>
+                        <div class="story-author">Barbra K.</div>
+                        <div class="story-location">United States</div>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">Thousands saved</div>
+                        <p class="story-quote">The discounts from Canada Drugmart are incredible. I was able to cut my medication costs in half, saving me thousands annually.</p>
+                        <div class="story-author">Mitchell H.</div>
+                        <div class="story-location">United States</div>
+                    </div>
+
+                    <div class="story-card fade-in">
+                        <div class="savings-badge-large">$500/month saved</div>
+                        <p class="story-quote">I can't believe the difference Canada Drugmart has made. I've reduced my drug spending by $500 a month without compromising on quality.</p>
+                        <div class="story-author">Sandra P.</div>
+                        <div class="story-location">United States</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Case Study Spotlight -->
         <section class="case-study">
             <div class="section fade-in">
@@ -1294,30 +1480,6 @@
                             <span class="stat-number">3-5</span>
                             <span class="stat-label">Day Delivery</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Ship & Comply -->
-        <section class="shipping-section">
-            <div class="section fade-in">
-                <h2 style="text-align: center; margin-bottom: 3rem;">🚚 Operations You Can Audit</h2>
-                <div class="shipping-steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Licensed Sourcing</h3>
-                        <p>Health Canada approved medications from verified manufacturers. Full chain of custody documentation available.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Same-Day Pack-Out</h3>
-                        <p>Insulated cold-chain packaging with ice packs. Temperature monitoring throughout the process.</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>3-5 Day Cross-Border</h3>
-                        <p>Express delivery with tracking. All customs and importation paperwork handled automatically.</p>
                     </div>
                 </div>
             </div>
@@ -1397,18 +1559,6 @@
                                 <div class="new-price">CDM Price: $335.50</div>
                             </div>
                             <div class="savings-badge">51% OFF</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <h3>Brilinta 90mg</h3>
-                        <p>Antiplatelet medication to reduce cardiovascular events.</p>
-                        <div class="price-comparison">
-                            <div>
-                                <div class="old-price">US Retail: $463.90</div>
-                                <div class="new-price">CDM Price: $199.75</div>
-                            </div>
-                            <div class="savings-badge">57% OFF</div>
                         </div>
                     </div>
                 </div>
@@ -1492,6 +1642,15 @@
                 <p style="margin-top: 1rem; opacity: 0.8;">
                     ⏰ Pricing held for 5 business days • 🔒 HIPAA compliant • 📞 No sales calls unless requested
                 </p>
+            </div>
+        </section>
+
+        <!-- Mission Statement Section -->
+        <section class="mission-section">
+            <div class="mission-content">
+                <p class="mission-quote">"Access shouldn't depend on your ZIP code."</p>
+                <p class="mission-text">We've built our reputation on one simple principle: every patient deserves access to life-saving medications, regardless of location or financial circumstance. For over 20 years, we've been the bridge between Health Canada's regulated supply and America's healthcare needs.</p>
+                <p class="mission-signature">— Canada Drug Mart Pharmacist Team</p>
             </div>
         </section>
     </div>
@@ -1631,7 +1790,7 @@
         // Form submission
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you! Your quote request has been submitted. You\'ll receive a detailed quote within 2 hours.');
+            alert('Thank you! Your quote request has been submitted. You\\'ll receive a detailed quote within 2 hours.');
         });
 
         // Dynamic navigation background
