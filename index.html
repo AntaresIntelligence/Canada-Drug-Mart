@@ -699,7 +699,15 @@
             flex-wrap: wrap;
         }
 
-        .story-card {
+        .story-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Ensure uniform container dimensions */
+            flex: 1;
+            min-width: 320px;
+            max-width: 380px;
+        }        .story-card {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
             border-radius: 25px;
             padding: 3rem 2.5rem;
@@ -708,14 +716,12 @@
             transition: all 0.3s ease;
             overflow: hidden;
             /* Ensure uniform card dimensions */
-            flex: 1;
-            min-width: 320px;
-            max-width: 380px;
+            width: 100%;
             min-height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding-top: 4rem;
+            margin-top: 1rem;
         }
 
         .story-card::before {
@@ -737,12 +743,7 @@
             transform: translateY(-15px) rotateX(2deg);
             box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
             border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .savings-badge-large {
-            position: absolute;
-            top: -20px;
-            right: -20px;
+        }        .savings-badge-large {
             background: linear-gradient(45deg, #00ff88, #00d4ff);
             color: #1a1a1a;
             padding: 1.2rem 1.8rem;
@@ -750,8 +751,9 @@
             font-size: 1.2rem;
             font-weight: 800;
             box-shadow: 0 15px 35px rgba(0, 255, 136, 0.4);
-            z-index: 2;
             animation: badgeBounce 2s ease-in-out infinite;
+            text-align: center;
+            display: inline-block;
         }
 
         @keyframes badgeBounce {
@@ -1236,6 +1238,11 @@
                 gap: 2rem;
             }
 
+            .story-container {
+                max-width: 100%;
+                min-width: auto;
+            }
+
             .story-card {
                 padding: 3rem 1.5rem;
                 max-width: 100%;
@@ -1477,30 +1484,36 @@
                     <h2>Real Savings, Real Stories</h2>
                     <p>No one should have to choose between health and finances. Here are real stories from patients saving thousands every year without compromising on quality.</p>
                 </div>                <div class="stories-grid">
-                    <div class="story-card fade-in">
+                    <div class="story-container fade-in">
                         <div class="savings-badge-large">$3,000+ saved/yr</div>
-                        <p class="story-quote">Canada Drugmart has been a lifesaver! I'm saving over $3,000 a year on my prescriptions, allowing me to finally afford my other expenses.</p>
-                        <div class="story-attribution">
-                            <div class="story-author">Barbra K.</div>
-                            <div class="story-location">United States</div>
+                        <div class="story-card">
+                            <p class="story-quote">Canada Drugmart has been a lifesaver! I'm saving over $3,000 a year on my prescriptions, allowing me to finally afford my other expenses.</p>
+                            <div class="story-attribution">
+                                <div class="story-author">Barbra K.</div>
+                                <div class="story-location">United States</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="story-card fade-in">
+                    <div class="story-container fade-in">
                         <div class="savings-badge-large">Thousands saved</div>
-                        <p class="story-quote">The discounts from Canada Drugmart are incredible. I was able to cut my medication costs in half, saving me thousands annually.</p>
-                        <div class="story-attribution">
-                            <div class="story-author">Mitchell H.</div>
-                            <div class="story-location">United States</div>
+                        <div class="story-card">
+                            <p class="story-quote">The discounts from Canada Drugmart are incredible. I was able to cut my medication costs in half, saving me thousands annually.</p>
+                            <div class="story-attribution">
+                                <div class="story-author">Mitchell H.</div>
+                                <div class="story-location">United States</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="story-card fade-in">
+                    <div class="story-container fade-in">
                         <div class="savings-badge-large">$500/month saved</div>
-                        <p class="story-quote">I can't believe the difference Canada Drugmart has made. I've reduced my drug spending by $500 a month without compromising on quality.</p>
-                        <div class="story-attribution">
-                            <div class="story-author">Sandra P.</div>
-                            <div class="story-location">United States</div>
+                        <div class="story-card">
+                            <p class="story-quote">I can't believe the difference Canada Drugmart has made. I've reduced my drug spending by $500 a month without compromising on quality.</p>
+                            <div class="story-attribution">
+                                <div class="story-author">Sandra P.</div>
+                                <div class="story-location">United States</div>
+                            </div>
                         </div>
                     </div>
                 </div>
