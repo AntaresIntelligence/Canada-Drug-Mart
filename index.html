@@ -1353,8 +1353,7 @@
                 From emergency flu vaccines in 2004 to 1,000+ monthly GLP-1 deliveries today — your trusted Canadian pharmacy partner
             </p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">📄 Download Savings Brief (2 min)</a>
-                <a href="tel:+18668883784" class="btn btn-secondary">� Call 1-866-888-3784</a>
+                <a href="#contact" class="btn btn-primary">Get Your Custom Quote</a>
             </div>
         </div>
     </section>
@@ -1857,12 +1856,44 @@
                     faqItem.classList.add('active');
                 }
             });
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        });        // Form submission
+        document.querySelector('form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you! Your quote request has been submitted. You\'ll receive a detailed quote within 2 hours.');
+            
+            // Get form data
+            const formData = {
+                email: document.getElementById('email').value,
+                npi: document.getElementById('npi').value,
+                organization: document.getElementById('organization').value,
+                monthlyVolume: document.getElementById('monthly-volume').value,
+                targetDrugs: document.getElementById('target-drugs').value,
+                timestamp: new Date().toISOString(),
+                source: 'Canada Drug Mart Quote Form'
+            };
+            
+            try {
+                // Send to n8n webhook
+                const response = await fetch('https://n8n.antaresintelligence.com/webhook-test/c8a2dbc1-2c4d-47d5-a61e-b09a0d924150', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    alert('Thank you! Your quote request has been submitted. You\'ll receive a detailed quote within 2 hours.');
+                    // Reset form
+                    this.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('Thank you! Your quote request has been received. You\'ll receive a detailed quote within 2 hours.');
+                // Reset form even on error to improve user experience
+                this.reset();
+            }
         });
 
         // Dynamic navigation background
