@@ -174,21 +174,23 @@
             color: white;
             z-index: 10;
             position: relative;
-        }
-
-        /* Brand Values Bar */
+        }        /* Brand Values Bar */
         .brand-values {
             display: flex;
-            justify-content: center;
-            gap: 3rem;
+            justify-content: space-evenly;
+            gap: 2rem;
             margin-bottom: 2rem;
             flex-wrap: wrap;
-        }
-
-        .value-item {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }        .value-item {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 120px;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 1s ease forwards;
@@ -688,13 +690,13 @@
             color: #666;
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
+        }        .stories-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 2rem;
             margin-top: 4rem;
+            flex-wrap: wrap;
         }
 
         .story-card {
@@ -705,7 +707,14 @@
             border: 1px solid rgba(102, 126, 234, 0.1);
             transition: all 0.3s ease;
             overflow: hidden;
-            /* Ensure enough top padding for the badge */
+            /* Ensure uniform card dimensions */
+            flex: 1;
+            min-width: 320px;
+            max-width: 380px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             padding-top: 4rem;
         }
 
@@ -748,15 +757,14 @@
         @keyframes badgeBounce {
             0%, 100% { transform: translateY(0) rotate(-5deg); }
             50% { transform: translateY(-5px) rotate(-3deg); }
-        }
-
-        .story-quote {
+        }        .story-quote {
             font-size: 1.2rem;
             font-style: italic;
             color: #444;
             margin-bottom: 2rem;
             line-height: 1.7;
             position: relative;
+            flex-grow: 1;
         }
 
         .story-quote::before {
@@ -767,19 +775,23 @@
             top: -1rem;
             left: -0.5rem;
             font-family: serif;
-        }
-
-        .story-author {
+        }        .story-author {
             font-weight: 700;
             color: #667eea;
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            margin-top: auto;
         }
 
         .story-location {
             color: #999;
             font-size: 1rem;
             font-style: italic;
+        }
+
+        .story-attribution {
+            margin-top: auto;
+            padding-top: 1rem;
         }
 
         /* Case Study Section */
@@ -1196,10 +1208,10 @@
             
             .nav-links {
                 display: none;
-            }
-
-            .brand-values {
-                gap: 1rem;
+            }            .brand-values {
+                gap: 1.5rem;
+                max-width: 100%;
+                justify-content: space-evenly;
             }
 
             .journey-milestone.left,
@@ -1218,15 +1230,16 @@
                 margin: 0 auto 1.5rem;
                 width: 80px;
                 height: 80px;
-            }
-
-            .stories-grid {
-                grid-template-columns: 1fr;
+            }            .stories-grid {
+                flex-direction: column;
+                align-items: center;
                 gap: 2rem;
             }
 
             .story-card {
                 padding: 3rem 1.5rem;
+                max-width: 100%;
+                min-width: auto;
             }
 
             .roadmap-header h2 {
@@ -1277,7 +1290,7 @@
                 <a href="catalog.html">Full Catalog</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
-                <a href="#" style="color: #00ff88;">Talk to a Pharmacist</a>
+                <a href="tel:+18668883784" style="color: #00ff88;">📞 Call 1-866-888-3784</a>
             </div>
         </div>
     </nav>
@@ -1337,7 +1350,7 @@
             </p>
             <div class="cta-buttons">
                 <a href="#" class="btn btn-primary">📄 Download Savings Brief (2 min)</a>
-                <a href="#" class="btn btn-secondary">📅 Book 15-min Discovery Call</a>
+                <a href="tel:+18668883784" class="btn btn-secondary">� Call 1-866-888-3784</a>
             </div>
         </div>
     </section>
@@ -1463,28 +1476,32 @@
                 <div class="stories-header">
                     <h2>Real Savings, Real Stories</h2>
                     <p>No one should have to choose between health and finances. Here are real stories from patients saving thousands every year without compromising on quality.</p>
-                </div>
-
-                <div class="stories-grid">
+                </div>                <div class="stories-grid">
                     <div class="story-card fade-in">
                         <div class="savings-badge-large">$3,000+ saved/yr</div>
                         <p class="story-quote">Canada Drugmart has been a lifesaver! I'm saving over $3,000 a year on my prescriptions, allowing me to finally afford my other expenses.</p>
-                        <div class="story-author">Barbra K.</div>
-                        <div class="story-location">United States</div>
+                        <div class="story-attribution">
+                            <div class="story-author">Barbra K.</div>
+                            <div class="story-location">United States</div>
+                        </div>
                     </div>
 
                     <div class="story-card fade-in">
                         <div class="savings-badge-large">Thousands saved</div>
                         <p class="story-quote">The discounts from Canada Drugmart are incredible. I was able to cut my medication costs in half, saving me thousands annually.</p>
-                        <div class="story-author">Mitchell H.</div>
-                        <div class="story-location">United States</div>
+                        <div class="story-attribution">
+                            <div class="story-author">Mitchell H.</div>
+                            <div class="story-location">United States</div>
+                        </div>
                     </div>
 
                     <div class="story-card fade-in">
                         <div class="savings-badge-large">$500/month saved</div>
                         <p class="story-quote">I can't believe the difference Canada Drugmart has made. I've reduced my drug spending by $500 a month without compromising on quality.</p>
-                        <div class="story-author">Sandra P.</div>
-                        <div class="story-location">United States</div>
+                        <div class="story-attribution">
+                            <div class="story-author">Sandra P.</div>
+                            <div class="story-location">United States</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1730,10 +1747,9 @@
                 <p>Licensed Pharmacy #32386<br>
                 Winnipeg, Manitoba<br>
                 Health Canada Approved</p>
-            </div>
-            <div class="footer-section">
+            </div>            <div class="footer-section">
                 <h4>📞 Contact</h4>
-                <p>Phone: 1-800-XXX-XXXX<br>
+                <p>Phone: 1-866-888-3784<br>
                 Email: info@canadadrugmart.com<br>
                 Hours: 8 AM - 6 PM CST</p>
             </div>
