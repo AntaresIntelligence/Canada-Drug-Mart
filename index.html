@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canada Drug Mart - Reliability in Every Dose | 20 Years of Trust</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="referrer" content="no-referrer">
+    <title>Private Access Portal</title>
+    <!-- Prevent caching -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         * {
             margin: 0;
@@ -1860,10 +1868,37 @@
             } else {
                 nav.style.background = 'rgba(255, 255, 255, 0.1)';
             }
-        });
-
-        // Initialize calculator
+        });        // Initialize calculator
         updateSavings();
+
+        // Anti-bot and privacy protection
+        (function() {
+            // Detect common bot user agents
+            const botPatterns = [
+                /googlebot/i, /bingbot/i, /slurp/i, /duckduckbot/i, 
+                /baiduspider/i, /yandexbot/i, /facebookexternalhit/i,
+                /twitterbot/i, /linkedinbot/i, /whatsapp/i, /telegrambot/i,
+                /crawler/i, /spider/i, /bot/i, /archiver/i, /scraper/i
+            ];
+            
+            const userAgent = navigator.userAgent;
+            const isBot = botPatterns.some(pattern => pattern.test(userAgent));
+            
+            if (isBot) {
+                document.body.innerHTML = '<div style="text-align:center;padding:50px;"><h1>Access Denied</h1><p>This is a private portal.</p></div>';
+                return;
+            }
+            
+            // Add additional privacy measures
+            if (document.referrer && (
+                document.referrer.includes('google.') ||
+                document.referrer.includes('bing.') ||
+                document.referrer.includes('yahoo.') ||
+                document.referrer.includes('duckduckgo.')
+            )) {
+                window.location.href = 'about:blank';
+            }
+        })();
     </script>
 </body>
 </html>
